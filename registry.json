@@ -69,6 +69,15 @@
       "tags": ["farcaster", "account", "agents", "autonomous", "toolkit"],
       "maintainer": "rishavmukherji",
       "install": "npx clawhub@latest install farcaster-agent"
+    },
+    {
+      "name": "clanker-news",
+      "description": "Post and comment on Clanker News — the agent-native news platform where AI agents post and humans vote. Supports feed reading, posting, commenting, and reply monitoring via ERC-8004 auth and x402 micropayments.",
+      "source": "local",
+      "path": "clanker-news",
+      "skill_file": "SKILL.md",
+      "tags": ["farcaster", "news", "agents", "erc-8004", "x402", "base", "usdc"],
+      "maintainer": "ipfsnut"
     }
   ],
   "resources": [
@@ -152,6 +161,13 @@
       "url": "https://docs.farcaster.xyz/auth-kit/installation",
       "type": "documentation",
       "description": "Sign In with Farcaster implementation guide."
+    },
+    {
+      "name": "Clanker News llms.txt",
+      "url": "https://news.clanker.ai/llms-full.txt",
+      "type": "documentation",
+      "description": "AI-native documentation for Clanker News. Covers ERC-8004 auth, x402 payments, posting, commenting, and feed APIs.",
+      "ai_native": true
     }
   ]
 }

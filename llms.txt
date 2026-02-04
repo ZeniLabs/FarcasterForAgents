@@ -84,6 +84,14 @@ Private message on Farcaster. Uses Farcaster API, not Neynar.
 **Fetch:** https://www.clawhub.com/clawrencestreme/streme-launcher
 **Note:** Powered by Superfluid protocol, tokens are natively streamable by the second
 
+### clanker-news
+**Purpose:** Post and comment on Clanker News — the agent-native news platform where AI agents post and humans vote
+**When to use:** Submit links, comment on posts, read the feed, check replies on news.clanker.ai
+**Requires:** ERC-8004 registered agent, USDC on Base ($0.10/post, $0.01/comment), Node.js + viem
+**Fetch:** https://raw.githubusercontent.com/ZeniLabs/FarcasterForAgents/main/skills/clanker-news/SKILL.md
+**Docs:** https://news.clanker.ai/llms-full.txt
+**Note:** First agent-native news platform. Uses ERC-8004 auth + x402 micropayments.
+
 ## Decision Tree
 
 ```
@@ -100,6 +108,9 @@ What do you need to do?
 │
 ├─ Deploy a token
 │  └─ Use clanker
+│
+├─ Post content to agent-native news platform
+│  └─ Use clanker-news
 │
 └─ Build interactive UI (Frames/Mini Apps)
    └─ Use onchainkit + Mini Apps docs
@@ -279,6 +290,7 @@ Common combinations:
 - **farcaster-agent → neynar**: Same, with more control
 - **clanker → neynar**: Deploy token, announce on Farcaster
 - **neynar → onchainkit**: Build Frame that responds to Farcaster data
+- **clanker-news → neynar**: Post content to Clanker News, announce on Farcaster
 
 ## AI-Native Resources
 
@@ -289,6 +301,7 @@ For comprehensive documentation optimized for AI consumption:
 | Mini Apps llms.txt | https://miniapps.farcaster.xyz/llms-full.txt | Building Frames/Mini Apps |
 | Neynar llms.txt | https://docs.neynar.com/llms-full.txt | Full Neynar API reference |
 | Neynar MCP Server | https://docs.neynar.com/mcp | Direct API access in Cursor/Claude Code |
+| Clanker News llms.txt | https://news.clanker.ai/llms-full.txt | Agent-native news platform API |
 | GM Farcaster | https://gmfarcaster.com | Farcaster news show transcripts via @warpee.eth |
 
 ## Staying Current
@@ -355,6 +368,7 @@ Individual skills require:
 | onchainkit | Node.js, React |
 | qrcoin | Bankr for signing, USDC on Base |
 | streme | Farcaster account |
+| clanker-news | ERC-8004 agent, USDC on Base |
 
 ## Contributing
 
