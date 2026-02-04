@@ -1,0 +1,149 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-02-04",
+  "hub_repo": "ZeniLabs/FarcasterForAgents",
+  "skills": [
+    {
+      "name": "neynar",
+      "description": "Farcaster API interactions via Neynar SDK. Post casts, read feeds, manage channels, search users.",
+      "source": "external",
+      "repo": "BankrBot/openclaw-skills",
+      "path": "neynar",
+      "skill_file": "SKILL.md",
+      "tags": ["farcaster", "api", "neynar", "casts", "channels"],
+      "maintainer": "BankrBot"
+    },
+    {
+      "name": "clanker",
+      "description": "Deploy ERC20 tokens with Uniswap V4 liquidity. Popular in Farcaster community but not Farcaster-specific.",
+      "source": "external",
+      "repo": "BankrBot/openclaw-skills",
+      "path": "clanker",
+      "skill_file": "SKILL.md",
+      "tags": ["farcaster", "tokens", "base", "uniswap", "launches"],
+      "maintainer": "BankrBot"
+    },
+    {
+      "name": "onchainkit",
+      "description": "Coinbase's React components for onchain apps. Use MiniKit specifically for Farcaster Frames.",
+      "source": "external",
+      "repo": "BankrBot/openclaw-skills",
+      "path": "onchainkit",
+      "skill_file": "SKILL.md",
+      "tags": ["farcaster", "frames", "minikit", "coinbase", "react"],
+      "maintainer": "BankrBot"
+    },
+    {
+      "name": "qrcoin",
+      "description": "Bid in QR code auctions on Base. Display URLs via QR codes popular in the Farcaster community.",
+      "source": "external",
+      "repo": "BankrBot/openclaw-skills",
+      "path": "qrcoin",
+      "skill_file": "SKILL.md",
+      "tags": ["farcaster", "qr", "auctions", "base", "usdc"],
+      "maintainer": "BankrBot"
+    },
+    {
+      "name": "clawcaster",
+      "description": "Farcaster account creation for AI agents. Covers signup costs, registers FIDs, posts casts, sets profiles. Non-custodial.",
+      "source": "url",
+      "url": "https://clawcaster.com/skill.md",
+      "tags": ["farcaster", "account", "onboarding", "agents", "fid"],
+      "maintainer": "clawcaster"
+    },
+    {
+      "name": "farcaster-agent",
+      "description": "Full autonomous agent toolkit. Account creation, key management, posting. OpenClaw compatible.",
+      "source": "external",
+      "repo": "rishavmukherji/farcaster-agent",
+      "path": "",
+      "skill_file": "SKILL.md",
+      "tags": ["farcaster", "account", "agents", "autonomous", "toolkit"],
+      "maintainer": "rishavmukherji",
+      "install": "npx clawhub@latest install farcaster-agent"
+    }
+  ],
+  "resources": [
+    {
+      "name": "Mini Apps llms.txt",
+      "url": "https://miniapps.farcaster.xyz/llms-full.txt",
+      "type": "documentation",
+      "description": "AI-native documentation for Farcaster Mini Apps. Covers SDK, manifests, auth, wallets, notifications.",
+      "ai_native": true
+    },
+    {
+      "name": "Neynar llms.txt",
+      "url": "https://docs.neynar.com/llms-full.txt",
+      "type": "documentation",
+      "description": "AI-native Neynar documentation. Covers SDK, frames, webhooks, agents, mini apps, smart contracts.",
+      "ai_native": true
+    },
+    {
+      "name": "Neynar MCP Server",
+      "url": "https://docs.neynar.com/mcp",
+      "type": "tool",
+      "description": "MCP server for AI agents to interact with Neynar API directly. Works with Cursor, Claude Code, VS Code."
+    },
+    {
+      "name": "Neynar API Docs",
+      "url": "https://docs.neynar.com",
+      "type": "documentation",
+      "description": "Primary API for Farcaster. REST endpoints for casts, users, channels, feeds."
+    },
+    {
+      "name": "Farcaster Protocol Spec",
+      "url": "https://github.com/farcasterxyz/protocol",
+      "type": "documentation",
+      "description": "Official protocol specification and architecture."
+    },
+    {
+      "name": "Farcaster Docs",
+      "url": "https://docs.farcaster.xyz",
+      "type": "documentation",
+      "description": "Official docs for building apps, AuthKit, mini apps, and Snapchain."
+    },
+    {
+      "name": "Direct Casts API",
+      "url": "https://docs.farcaster.xyz/reference/warpcast/direct-casts",
+      "type": "documentation",
+      "description": "Warpcast API for sending private direct messages."
+    },
+    {
+      "name": "Warpcast API Reference",
+      "url": "https://docs.farcaster.xyz/reference/warpcast/api",
+      "type": "documentation",
+      "description": "Warpcast-specific API endpoints and features."
+    },
+    {
+      "name": "OnchainKit Docs",
+      "url": "https://onchainkit.xyz",
+      "type": "documentation",
+      "description": "Coinbase's toolkit for onchain apps, includes MiniKit for Frames."
+    },
+    {
+      "name": "Clanker SDK",
+      "url": "https://github.com/clanker-devkit/clanker-sdk",
+      "type": "tool",
+      "description": "Token deployment SDK popular in Farcaster community."
+    },
+    {
+      "name": "GM Farcaster",
+      "url": "https://gmfarcaster.com",
+      "type": "news",
+      "description": "Farcaster news show (3x/week). Query @warpee.eth for transcript access and ecosystem updates.",
+      "ai_native": true
+    },
+    {
+      "name": "How I Learned to Post on Farcaster (Gaga Bot)",
+      "url": "https://11211.me/blog/how-i-learned-to-post-on-farcaster",
+      "type": "example",
+      "description": "Tutorial by an AI bot covering FID setup, Ed25519 signing, profile config, posting mechanics, and common pitfalls."
+    },
+    {
+      "name": "Farcaster AuthKit",
+      "url": "https://docs.farcaster.xyz/auth-kit/installation",
+      "type": "documentation",
+      "description": "Sign In with Farcaster implementation guide."
+    }
+  ]
+}
