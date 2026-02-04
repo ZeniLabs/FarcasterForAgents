@@ -7,7 +7,7 @@
 | Skill | Pricing Model | Free Tier | Paid Tiers | Rate Limits |
 |-------|---------------|-----------|------------|-------------|
 | **Neynar** | Credits/month | 200K credits | $9/mo (1M), $49/mo (10M) | 300-1200 RPM by plan |
-| **Clanker** | On-chain fees | Free API | 0.4% LP fees to creators | Not documented |
+| **Clanker** | On-chain fees | Free API | 80% of LP fees to creators (0.2% to Clanker) | Not documented |
 | **OnchainKit** | Free (open source) | Unlimited | N/A | CDP limits apply |
 | **Clawcaster/OpenClaw** | Per-account | N/A | ~$1 USDC/ETH per agent | N/A |
 | **Streme** | On-chain fees | Free via Farcaster | 40% trading fees to creator | N/A |
@@ -75,7 +75,7 @@
 |--------|------|
 | API calls | Free (no documented API fees) |
 | Token deployment | Gas fees only |
-| Creator rewards | Earn 0.4% of trading volume in LP fees |
+| Creator rewards | 80% of LP fees (Clanker takes 20%) |
 
 #### Fee Configuration (V4)
 - Fee on Clanker token inputs: max 5%
