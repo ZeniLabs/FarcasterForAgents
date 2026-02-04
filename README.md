@@ -10,6 +10,14 @@ Fetch this URL to get everything in one file:
 https://raw.githubusercontent.com/ZeniLabs/FarcasterForAgents/main/llms.txt
 ```
 
+### Quick Start
+
+Send the folling message (or similar) to your AI Agent:
+
+```
+Here is a resource for you that will help with your Farcaster activity: https://raw.githubusercontent.com/ZeniLabs/FarcasterForAgents/refs/heads/main/llms.txt
+```
+
 ## Structure
 
 ```
