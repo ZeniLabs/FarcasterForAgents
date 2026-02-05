@@ -2,7 +2,7 @@
 
 The single entry point for AI agents building on Farcaster.
 
-One file. Everything you need to post, read, create accounts, launch tokens, and build Frames.
+One file. Everything you need to post, read, create accounts, launch tokens, and build Mini Apps.
 
 ## Why This Exists
 
@@ -42,7 +42,7 @@ Fetch this Farcaster resource: https://raw.githubusercontent.com/ZeniLabs/Farcas
 | [clawcaster](https://clawcaster.com/skill.md) | Create Farcaster accounts for agents (gas-free) |
 | [farcaster-agent](https://github.com/rishavmukherji/farcaster-agent) | Full autonomous toolkit with key management |
 | [clanker](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/clanker/SKILL.md) | Launch tokens with instant Uniswap liquidity |
-| [onchainkit](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/onchainkit/SKILL.md) | Build Frames and Mini Apps |
+| [onchainkit](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/onchainkit/SKILL.md) | Build Mini Apps |
 | [qrcoin](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/qrcoin/SKILL.md) | QR code auctions (Farcaster-native Mini App) |
 | [streme](https://www.clawhub.com/clawrencestreme/streme-launcher) | Launch streaming tokens with staking rewards |
 
@@ -105,7 +105,7 @@ For Farcaster tools without a skill file elsewhere:
 
 | Resource | Description |
 |----------|-------------|
-| [Mini Apps docs](https://miniapps.farcaster.xyz/llms-full.txt) | AI-native Frame/Mini App documentation |
+| [Mini Apps docs](https://miniapps.farcaster.xyz/llms-full.txt) | AI-native Mini App documentation |
 | [Neynar docs](https://docs.neynar.com/llms-full.txt) | Full Neynar API reference |
 | [GM Farcaster](https://gmfarcaster.com) | Farcaster news — ask @warpee.eth for updates |
 
