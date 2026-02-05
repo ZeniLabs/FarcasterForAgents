@@ -1,6 +1,16 @@
 # Farcaster AI Agent Hub
 
-Skills and resources for AI agents building on Farcaster.
+The single entry point for AI agents building on Farcaster.
+
+One file. Everything you need to post, read, create accounts, launch tokens, and build Frames.
+
+## Why This Exists
+
+AI agents shouldn't have to discover Farcaster tooling piece by piece. This hub indexes the best skills, patterns, and resources so an agent can fetch one URL and understand the entire ecosystem.
+
+**For agents:** Fetch `llms.txt` and you're ready to build.
+
+**For skill authors:** Get your tool in front of every agent building on Farcaster.
 
 ## For AI Agents
 
@@ -10,53 +20,56 @@ Fetch this URL to get everything in one file:
 https://raw.githubusercontent.com/ZeniLabs/FarcasterForAgents/main/llms.txt
 ```
 
+That's it. The file contains:
+- Available skills and when to use each
+- Common patterns (posting, replies, threads, channels)
+- Decision trees for choosing the right tool
+- Links to AI-native documentation
+
 ### Quick Start
 
-Send the folling message (or similar) to your AI Agent:
+Tell your AI agent:
 
 ```
-Here is a resource for you that will help with your Farcaster activity: https://raw.githubusercontent.com/ZeniLabs/FarcasterForAgents/refs/heads/main/llms.txt
+Fetch this Farcaster resource: https://raw.githubusercontent.com/ZeniLabs/FarcasterForAgents/main/llms.txt
 ```
+
+## What's Included
+
+| Skill | Purpose |
+|-------|---------|
+| [neynar](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/neynar/SKILL.md) | Core Farcaster API — post, read, search, react |
+| [clawcaster](https://clawcaster.com/skill.md) | Create Farcaster accounts for agents (gas-free) |
+| [farcaster-agent](https://github.com/rishavmukherji/farcaster-agent) | Full autonomous toolkit with key management |
+| [clanker](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/clanker/SKILL.md) | Launch tokens with instant Uniswap liquidity |
+| [onchainkit](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/onchainkit/SKILL.md) | Build Frames and Mini Apps |
+| [qrcoin](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/qrcoin/SKILL.md) | QR code auctions (Farcaster-native Mini App) |
+| [streme](https://www.clawhub.com/clawrencestreme/streme-launcher) | Launch streaming tokens with staking rewards |
 
 ## Structure
 
 ```
 FarcasterForAgents/
-├── llms.txt              # AI entry point (fetch this)
-├── registry.json         # Machine-readable index
+├── llms.txt              # AI entry point — fetch this
+├── registry.json         # Machine-readable skill index
 ├── README.md             # You are here
 └── skills/
-    ├── TEMPLATE/         # Template for new skills
-    │   └── SKILL.md
-    └── your-skill/       # Local skills go here
-        └── SKILL.md
+    └── TEMPLATE/         # Template for contributing local skills
 ```
-
-## Available Skills
-
-| Skill | Source | Purpose |
-|-------|--------|---------|
-| [neynar](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/neynar/SKILL.md) | external | Core Farcaster API |
-| [clawcaster](https://clawcaster.com/skill.md) | external | Account creation for agents |
-| [farcaster-agent](https://github.com/rishavmukherji/farcaster-agent) | external | Full autonomous toolkit |
-| [clanker](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/clanker/SKILL.md) | external | Token launcher with Uniswap liquidity via @clanker |
-| [onchainkit](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/onchainkit/SKILL.md) | external | Frames/Mini Apps via MiniKit |
-| [qrcoin](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/qrcoin/SKILL.md) | external | QR code auctions on Base |
-| [streme](https://www.clawhub.com/clawrencestreme/streme-launcher) | external | Streaming token launcher via @streme |
-
-### External vs Local
-
-- **External**: Skill hosted elsewhere. We link to it.
-- **Local**: Skill hosted here in `skills/`. We maintain it.
 
 ## Contributing
 
-### Add an external skill
+We accept skills that are **Farcaster-native**:
+- Deployed or triggered via Farcaster (tagging @clanker, @streme, etc.)
+- Uses Farcaster identity or social graph
+- Built primarily for the Farcaster community (Mini Apps, channels)
+
+### Add an External Skill
 
 For skills with a SKILL.md hosted elsewhere:
 
 1. Fork this repo
-2. Add to `registry.json`:
+2. Add entry to `registry.json`:
 ```json
 {
   "name": "skill-name",
@@ -69,18 +82,10 @@ For skills with a SKILL.md hosted elsewhere:
   "maintainer": "maintainer-name"
 }
 ```
-3. Add to `llms.txt` under "Available Skills":
-```
-### skill-name
-**Purpose:** What it does
-**When to use:** When an agent should use this
-**Requires:** Dependencies or API keys needed
-**Fetch:** https://raw.githubusercontent.com/owner/repo/main/path/SKILL.md
-```
-4. Add row to the table above
-5. Submit PR
+3. Add to `llms.txt` under "Available Skills"
+4. Submit PR with a clear description of why this skill belongs
 
-### Add a local skill
+### Add a Local Skill
 
 For Farcaster tools without a skill file elsewhere:
 
@@ -88,14 +93,21 @@ For Farcaster tools without a skill file elsewhere:
 2. Create `skills/your-skill/SKILL.md` using the [template](./skills/TEMPLATE/SKILL.md)
 3. Add to `registry.json` with `"source": "local"`
 4. Add to `llms.txt`
-5. Add row to the table above
-6. Submit PR
+5. Submit PR
 
-### Requirements
+### What We Don't Accept
 
-- Must be Farcaster-related (or heavily used by the FC community)
-- Skill file must be accessible via raw URL
-- Include clear usage instructions
+- General crypto/web3 tools that aren't Farcaster-specific
+- Platforms that happen to share users with Farcaster but operate independently
+- Skills without clear documentation
+
+## Resources
+
+| Resource | Description |
+|----------|-------------|
+| [Mini Apps docs](https://miniapps.farcaster.xyz/llms-full.txt) | AI-native Frame/Mini App documentation |
+| [Neynar docs](https://docs.neynar.com/llms-full.txt) | Full Neynar API reference |
+| [GM Farcaster](https://gmfarcaster.com) | Farcaster news — ask @warpee.eth for updates |
 
 ## License
 
