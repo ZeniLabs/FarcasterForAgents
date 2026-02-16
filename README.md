@@ -1,59 +1,62 @@
 # Farcaster AI Agent Hub
 
-Skills and resources for AI agents building on Farcaster.
+One file. Everything an agent needs for Farcaster.
+
+Post, read, launch tokens, build Mini Apps — all indexed here.
 
 ## For AI Agents
-
-Fetch this URL to get everything in one file:
 
 ```
 https://raw.githubusercontent.com/ZeniLabs/FarcasterForAgents/main/llms.txt
 ```
 
+Fetch it. That's the whole onboarding.
+
+**What's in llms.txt:**
+- Available skills and when to use each
+- Common patterns (posting, replies, threads, channels)
+- Decision trees for choosing the right tool
+- Links to full documentation
+
 ### Quick Start
 
-Send the folling message (or similar) to your AI Agent:
+Tell your agent:
+```
+Fetch this Farcaster resource: https://raw.githubusercontent.com/ZeniLabs/FarcasterForAgents/main/llms.txt
+```
 
-```
-Here is a resource for you that will help with your Farcaster activity: https://raw.githubusercontent.com/ZeniLabs/FarcasterForAgents/refs/heads/main/llms.txt
-```
+## Skills
+
+| Skill | Purpose |
+|-------|---------|
+| [neynar](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/neynar/SKILL.md) | Core Farcaster API — post, read, search, react |
+| [clawcaster](https://clawcaster.com/skill.md) | Create Farcaster accounts (gas-free) |
+| [farcaster-agent](https://github.com/rishavmukherji/farcaster-agent) | Full autonomous toolkit with key management |
+| [clanker](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/clanker/SKILL.md) | Launch tokens with instant Uniswap liquidity |
+| [streme](https://www.clawhub.com/clawrencestreme/streme-launcher) | Launch streaming tokens with staking rewards |
+| [clanker-news](./skills/clanker-news/SKILL.md) | Post to Clanker News — agents post, humans vote |
+| [onchainkit](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/onchainkit/SKILL.md) | Build Mini Apps |
+| [qrcoin](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/qrcoin/SKILL.md) | QR code auctions (Farcaster Mini App) |
 
 ## Structure
 
 ```
 FarcasterForAgents/
-├── llms.txt              # AI entry point (fetch this)
-├── registry.json         # Machine-readable index
-├── README.md             # You are here
+├── llms.txt          # Fetch this
+├── registry.json     # Machine-readable index
+├── README.md
 └── skills/
-    ├── TEMPLATE/         # Template for new skills
-    │   └── SKILL.md
-    └── your-skill/       # Local skills go here
-        └── SKILL.md
+    └── TEMPLATE/     # For new local skills
 ```
-
-## Available Skills
-
-| Skill | Source | Purpose |
-|-------|--------|---------|
-| [neynar](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/neynar/SKILL.md) | external | Core Farcaster API |
-| [clawcaster](https://clawcaster.com/skill.md) | external | Account creation for agents |
-| [farcaster-agent](https://github.com/rishavmukherji/farcaster-agent) | external | Full autonomous toolkit |
-| [clanker](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/clanker/SKILL.md) | external | Token launcher with Uniswap liquidity via @clanker |
-| [onchainkit](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/onchainkit/SKILL.md) | external | Frames/Mini Apps via MiniKit |
-| [qrcoin](https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/qrcoin/SKILL.md) | external | QR code auctions on Base |
-| [streme](https://www.clawhub.com/clawrencestreme/streme-launcher) | external | Streaming token launcher via @streme |
-
-### External vs Local
-
-- **External**: Skill hosted elsewhere. We link to it.
-- **Local**: Skill hosted here in `skills/`. We maintain it.
 
 ## Contributing
 
-### Add an external skill
+We accept **Farcaster-native** skills:
+- Deployed or triggered via Farcaster (tagging @clanker, @streme, etc.)
+- Uses Farcaster identity or social graph
+- Built for the Farcaster community (Mini Apps, channels)
 
-For skills with a SKILL.md hosted elsewhere:
+### Add a Skill
 
 1. Fork this repo
 2. Add to `registry.json`:
@@ -66,36 +69,28 @@ For skills with a SKILL.md hosted elsewhere:
   "path": "skill-folder",
   "skill_file": "SKILL.md",
   "tags": ["farcaster", "relevant", "tags"],
-  "maintainer": "maintainer-name"
+  "maintainer": "your-name"
 }
 ```
-3. Add to `llms.txt` under "Available Skills":
-```
-### skill-name
-**Purpose:** What it does
-**When to use:** When an agent should use this
-**Requires:** Dependencies or API keys needed
-**Fetch:** https://raw.githubusercontent.com/owner/repo/main/path/SKILL.md
-```
-4. Add row to the table above
-5. Submit PR
+3. Add to `llms.txt` under "Available Skills"
+4. Submit PR explaining why it belongs
 
-### Add a local skill
+For local skills (no external SKILL.md): create `skills/your-skill/SKILL.md` using the [template](./skills/TEMPLATE/SKILL.md) and set `"source": "local"`.
 
-For Farcaster tools without a skill file elsewhere:
+### Not Accepted
 
-1. Fork this repo
-2. Create `skills/your-skill/SKILL.md` using the [template](./skills/TEMPLATE/SKILL.md)
-3. Add to `registry.json` with `"source": "local"`
-4. Add to `llms.txt`
-5. Add row to the table above
-6. Submit PR
+- General crypto tools that aren't Farcaster-specific
+- Platforms that share users with FC but operate independently
+- Skills without clear documentation
 
-### Requirements
+## Resources
 
-- Must be Farcaster-related (or heavily used by the FC community)
-- Skill file must be accessible via raw URL
-- Include clear usage instructions
+| Resource | Description |
+|----------|-------------|
+| [Mini Apps docs](https://miniapps.farcaster.xyz/llms-full.txt) | AI-native Mini App documentation |
+| [Neynar docs](https://docs.neynar.com/llms-full.txt) | Full Neynar API reference |
+| [Clanker News docs](https://news.clanker.ai/llms-full.txt) | ERC-8004 auth, x402 payments, agent posting |
+| [GM Farcaster](https://gmfarcaster.com) | FC news — @warpee.eth has episode transcripts |
 
 ## License
 
