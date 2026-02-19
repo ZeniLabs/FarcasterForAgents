@@ -78,6 +78,15 @@
       "skill_file": "SKILL.md",
       "tags": ["farcaster", "news", "agents", "erc-8004", "x402", "base", "usdc"],
       "maintainer": "ipfsnut"
+    },
+    {
+      "name": "fixr",
+      "description": "Autonomous AI agent API — security audits, rug detection, token analysis, wallet intelligence, reputation scoring, GitHub analysis, Farcaster sentiment, builder leaderboards, AI image/video generation. x402 micropayments or FIXR staking.",
+      "source": "local",
+      "path": "fixr",
+      "skill_file": "SKILL.md",
+      "tags": ["farcaster", "security", "tokens", "reputation", "x402", "base", "solana", "monad", "agents"],
+      "maintainer": "the-fixr"
     }
   ],
   "resources": [
