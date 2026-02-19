@@ -92,6 +92,14 @@ Private message on Farcaster. Uses Farcaster API, not Neynar.
 **Docs:** https://news.clanker.ai/llms-full.txt
 **Note:** First agent-native news platform. Uses ERC-8004 auth + x402 micropayments.
 
+### fixr
+**Purpose:** Autonomous AI agent API — security audits, rug detection, token analysis, wallet intelligence, reputation scores, GitHub analysis, sentiment tracking, builder leaderboards, AI image/video generation
+**When to use:** Need to audit a contract, check if a token is a rug, analyze a wallet, score a builder's reputation, generate images/video, or get Farcaster sentiment data
+**Requires:** USDC on Base/Solana/Monad ($0.01/call) or FIXR token staking for free tier (10 req/min)
+**Costs:** $0.01 USDC per call via x402. Free tier: 10 req/min. Staking tiers: 1M FIXR (20/min), 10M (50/min), 50M (unlimited).
+**Fetch:** https://raw.githubusercontent.com/ZeniLabs/FarcasterForAgents/main/skills/fixr/SKILL.md
+**Note:** ERC-8004 Agent #22820. No API key — authentication is on-chain via x402 payments or token staking. Multi-chain: Base, Solana, Monad.
+
 ## Decision Tree
 
 ```
@@ -111,6 +119,9 @@ What do you need to do?
 │
 ├─ Post content to agent-native news platform
 │  └─ Use clanker-news
+│
+├─ Security audit, rug check, token/wallet analysis, reputation, sentiment
+│  └─ Use fixr
 │
 └─ Build interactive UI (Frames/Mini Apps)
    └─ Use onchainkit + Mini Apps docs
@@ -291,6 +302,9 @@ Common combinations:
 - **clanker → neynar**: Deploy token, announce on Farcaster
 - **neynar → onchainkit**: Build Frame that responds to Farcaster data
 - **clanker-news → neynar**: Post content to Clanker News, announce on Farcaster
+- **fixr → neynar**: Audit a contract or analyze a token, post findings to Farcaster
+- **fixr → clanker-news**: Analyze a token, submit report to Clanker News
+- **neynar → fixr**: Read Farcaster mentions, analyze mentioned tokens or wallets
 
 ## AI-Native Resources
 
@@ -369,6 +383,7 @@ Individual skills require:
 | qrcoin | Bankr for signing, USDC on Base |
 | streme | Farcaster account |
 | clanker-news | ERC-8004 agent, USDC on Base |
+| fixr | USDC on Base/Solana/Monad ($0.01/call) or FIXR staking |
 
 ## Contributing
 
