@@ -42,18 +42,21 @@ Private message on Farcaster. Uses Farcaster API, not Neynar.
 **Purpose:** Core Farcaster API - post casts, read feeds, manage channels, search users
 **When to use:** Most Farcaster read/write operations
 **Requires:** Neynar API key (free tier: 300 req/min), Signer UUID for writes
+**Costs:** Free tier: 200K credits/month. Cast lookup: 1 credit, posting: 10-25 credits, reactions: 10 credits, feed pages: 4 credits/item. Each active signer adds +20K credits.
 **Fetch:** https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/neynar/SKILL.md
 
 ### clawcaster
 **Purpose:** Create Farcaster accounts for AI agents
 **When to use:** Agent needs its own Farcaster identity, don't want to handle gas
 **Requires:** Self-generated custody wallet on Optimism (Clawcaster covers gas)
+**Costs:** ~$1 one-time activation. Subsequent operations use Neynar credits only.
 **Fetch:** https://clawcaster.com/skill.md
 
 ### farcaster-agent
 **Purpose:** Full autonomous agent toolkit - account creation, key management, posting
 **When to use:** Building agents from scratch, want more control than clawcaster
 **Requires:** ~$1 of crypto for initial setup
+**Costs:** ~$1 setup + Neynar credits for operations + LLM token costs if using AI features.
 **Install:** `npx clawhub@latest install farcaster-agent`
 **Repo:** https://github.com/rishavmukherji/farcaster-agent
 
@@ -61,6 +64,7 @@ Private message on Farcaster. Uses Farcaster API, not Neynar.
 **Purpose:** Launch tokens with instant Uniswap V4 liquidity via @clanker on Farcaster
 **When to use:** Deploy ERC20 tokens with built-in liquidity pools in one transaction
 **Requires:** Farcaster account to tag @clanker, Bankr for transaction signing
+**Costs:** API queries free. Token deployment: ~$0.50-2 gas on Base. Creator earns 80% of LP fees.
 **Fetch:** https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/clanker/SKILL.md
 **Note:** The dominant token launcher in the Farcaster ecosystem, acquired by Farcaster
 
@@ -68,6 +72,7 @@ Private message on Farcaster. Uses Farcaster API, not Neynar.
 **Purpose:** Coinbase's React components for onchain apps, includes MiniKit for Farcaster Frames
 **When to use:** Building interactive Frames or Mini Apps
 **Requires:** Node.js, React
+**Costs:** Free. CDP rate limits: 3-10 RPS public, 5-15 RPS authenticated, 1 WebSocket/sec (max 20 subscriptions).
 **Fetch:** https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/onchainkit/SKILL.md
 **Note:** General onchain toolkit - use MiniKit specifically for Farcaster integration
 
@@ -75,12 +80,14 @@ Private message on Farcaster. Uses Farcaster API, not Neynar.
 **Purpose:** Bid in QR code auctions on Base
 **When to use:** Display URLs via QR codes, participate in auctions
 **Requires:** Bankr for transaction signing, USDC on Base
+**Costs:** Viewing free. Bids cost USDC (varies widely). High-cost action — only bid if explicitly requested.
 **Fetch:** https://raw.githubusercontent.com/BankrBot/openclaw-skills/main/qrcoin/SKILL.md
 
 ### streme
 **Purpose:** Launch streaming tokens with built-in staking rewards via @streme on Farcaster
 **When to use:** Deploy SuperTokens with streaming capabilities and staking rewards
 **Requires:** Farcaster account to tag @streme
+**Costs:** Token creation free via @streme mention. Only costs Neynar credits for the cast. Creator earns 40% of trading fees.
 **Fetch:** https://www.clawhub.com/clawrencestreme/streme-launcher
 **Note:** Powered by Superfluid protocol, tokens are natively streamable by the second
 
@@ -369,6 +376,40 @@ Individual skills require:
 | qrcoin | Bankr for signing, USDC on Base |
 | streme | Farcaster account |
 | clanker-news | ERC-8004 agent, USDC on Base |
+
+## Operational Cost Guidelines
+
+### Quick Reference
+
+| Skill | Cost Model | Key Constraint |
+|-------|-----------|----------------|
+| Neynar | Credits/month (200K free) | 300 RPM, 5 RPS |
+| Clanker | Gas fees for deployment | No API rate limits |
+| OnchainKit | Free | CDP: 3-10 RPS |
+| Clawcaster | ~$1 one-time | Neynar costs after setup |
+| Streme | Free (via mention) | No public API |
+| QRCoin | USDC bids | Daily auctions only |
+| Farcaster-Agent | Setup + Neynar + LLM | Composite costs |
+
+### When to Cache vs Query Fresh
+
+**Cache** (changes infrequently): user profiles, cast content (immutable), token metadata
+**Query fresh** (changes rapidly): follower counts, feed content, token prices
+
+### Budget Planning (200K Free Neynar Credits)
+
+- ~6,600 casts (at 30 credits each)
+- ~40,000 user lookups (at 5 credits each)
+- ~200,000 cast lookups (at 1 credit each)
+
+Mix operations based on task; cache aggressively to extend budget.
+
+### Cost Decision Framework
+
+- **Free operations**: Execute without hesitation (lookups, searches, OnchainKit)
+- **Low cost** (1-25 credits): Proceed normally (posting, reactions)
+- **Medium cost** (50-150 credits): Check if data is cached first (bulk lookups)
+- **High cost** (gas, USDC): Confirm intent before executing (token deployment, QR bids)
 
 ## Contributing
 
